@@ -1,0 +1,352 @@
+/* Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus-visible {
+  outline-offset: 0;
+}
+html {
+  font: 62.5% / 1.15 sans-serif; /* Sets font size to 10px for easy rem calculations */
+}
+
+h1 {
+  background: linear-gradient(90deg, #5E1B89 5%, #9D71BC 50%, #FF7F4D 92%, #F4512C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: large;
+  color:#101720;
+}
+h1,
+h2 {
+  margin-bottom: 0; /* Removes default margin from h1 and h2 elements */
+}
+ul {
+  list-style: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+}
+/* App.css */
+.todo.completed .todo-label {
+  text-decoration: line-through;
+}
+
+button {
+  -moz-osx-font-smoothing: inherit;
+  -webkit-font-smoothing: inherit;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  width: auto; /* Removes default button styling */
+}
+button::-moz-focus-inner {
+  border: 0; /* Removes default border in Firefox */
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%; /* Ensures consistent font size */
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible; /* Ensures elements do not clip overflow */
+}
+
+input[type="text"] {
+  border-radius: 0; /* Removes default border radius */
+}
+body {
+  font-family: 'Arial';
+  background-image: linear-gradient(#5E1B89 5%, #9D71BC 50%, #FF7F4D 92%, #F4512C 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #0B1215; 
+  margin: 0 auto;
+  width: 100%; /* Ensures body takes full width */
+}
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.9rem; /* Increases font size on larger screens */
+    line-height: 1.31579;
+  }
+}
+/* End resets */
+
+/* Global styles */
+.form-group > input[type="text"] {
+  display: inline-block;
+  margin-top: 0.4rem; /* Adds margin to text input inside .form-group */
+}
+.btn {
+  border: 0.2rem solid #9D71BC; /* Purple border */
+  cursor: pointer;
+  padding: 0.8rem 3rem 0.7rem 3rem; /* Adds padding to button */
+  text-transform: capitalize; /* Capitalizes button text */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition for background, text color, and border color */
+}
+.btn:hover {
+  background-color: #5E1B89; 
+  color: #fff; /* White text on hover */
+}
+.btn:focus-visible {
+  border-color: #5E1B89; /* Purple border on focus */
+  outline: none; /* Removes default focus outline */
+}
+.btn.toggle-btn {
+  border-color: #d3d3d3; /* Light grey border for toggle buttons */
+  border-width: 1px;
+}
+.btn.toggle-btn[aria-pressed="true"],
+.btn.toggle-btn.active {
+  border-color: #5E1B89; 
+  background-color: #5E1B89; 
+  color: #fff; /* White text when active */
+}
+.btn__danger {
+  background-color: #FF7F4D; /* Pastel orange background */
+  border-color: #F4512C; /* Slightly darker pastel orange border */
+  color: #fff; /* White text color */
+}
+.btn__danger:hover {
+  background-color: #F4512C; /* Darker pastel orange on hover */
+}
+.btn__danger:focus-visible {
+  border-color: #F4512C; /* Orange border on focus */
+}
+.btn__filter {
+  border-color: #dcdcdc; /* Light grey border for filter buttons */
+}
+.btn__primary {
+  background-color: #9D71BC; /* Pastel purple background */
+  color: #fff; /* White text color */
+}
+.btn__primary:hover {
+  background-color: #5E1B89; /* Darker pastel purple on hover */
+}
+.btn__primary:focus-visible {
+  border-color: #9D71BC; /* Purple border on focus */
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between; /* Distributes buttons evenly */
+}
+.btn-group > * {
+  flex: 1 1 49%; /* Allows buttons to flex and take up equal space */
+}
+.btn-group > * + * {
+  margin-left: 0.8rem; /* Adds margin between buttons */
+}
+.label-wrapper {
+  flex: 0 0 100%;
+  margin: 0;
+  text-align: center; /* Centers text in label-wrapper */
+}
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px); /* Hides element from view */
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+[class*="stack"] > * {
+  margin-bottom: 0;
+  margin-top: 0; /* Removes default margin from stacked elements */
+}
+.stack-small > * + * {
+  margin-top: 1.25rem; /* Adds space between elements in small stack */
+}
+.stack-large > * + * {
+  margin-top: 2.5rem; /* Adds space between elements in large stack */
+}
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem; /* Adjusts space for small stack on larger screens */
+  }
+  .stack-large > * + * {
+    margin-top: 2.8rem; /* Adjusts space for large stack on larger screens */
+  }
+}
+.stack-exception {
+  margin-top: 1.2rem; /* Adds margin for exceptional stack elements */
+}
+/* End global styles */
+
+/* General app styles */
+.todoapp {
+  background: #fff; /* White background for todo app */
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2.5rem 5rem 0 rgb(0 0 0 / 10%); /* Adds shadow for depth */
+  margin: 5rem 5rem 5rem 50rem; /* Centered margin, auto on left and right */
+  padding: 3rem;
+  position: relative;
+  overflow-y: auto; /* Ensures scrolling if content overflows */
+  max-height: 80vh; /* Restricts height for scrolling */
+  border-radius: 4px;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.todoapp::-webkit-scrollbar {
+  width: 0px; /* Hides the scrollbar */
+}
+
+@media screen and (min-width: 550px) {
+  .todoapp {
+    padding: 4rem; /* Increases padding on larger screens */
+  }
+}
+.todoapp > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50rem; /* Centers content and limits width */
+}
+.todoapp > form {
+  max-width: 100%;
+}
+.todoapp > h1 {
+  display: block;
+  margin: 0;
+  margin-bottom: 1rem; /* Adds bottom margin to h1 */
+  max-width: 100%;
+  text-align: center; /* Centers text */
+}
+.label__lg {
+  line-height: 1.01567;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  text-align: center; /* Centers text in labels */
+}
+/* Align form elements */
+.todoapp form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Adds space between form elements */
+}
+.input__lg {
+  border: 2px solid #b39ddb; /* Pastel purple border for large inputs */
+  padding: 2rem;
+}
+.input__lg:focus-visible {
+  border-color: #6e6e6e; /* Darker grey border on focus */
+  box-shadow: inset 0 0 0 2px #6e6e6e; /* Adds a focus ring in the same color */
+}
+[class*="__lg"] {
+  display: inline-block;
+  font-size: 1.9rem;
+  width: 100%; /* Ensures full-width input elements */
+}
+[class*="__lg"]:not(:last-child) {
+  margin-bottom: 1rem; /* Adds margin to all but last large input */
+}
+@media screen and (min-width: 620px) {
+  [class*="__lg"] {
+    font-size: 2.4rem; /* Increases font size for large inputs on larger screens */
+  }
+}
+/* End general app styles */
+
+/* Todo item styles */
+.todo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allows todo items to wrap */
+}
+.todo > * {
+  flex: 0 0 100%; /* Makes each todo item take full width */
+}
+.todo-text {
+  border: 2px solid #d3b8ae; /* Light pastel orange border for todo text */
+  min-height: 4.4rem;
+  padding: 0.4rem 1.4rem; /* Adds padding to todo text */
+  width: 100%; /* Ensures full-width text area */
+}
+.todo-text input {
+  border: 0;
+  width: 100%; /* Ensures full-width input */
+}
+.todo-text button {
+  border: none; /* Removes border from buttons inside todo text */
+}
+
+/* Checkbox styles */
+.c-cb {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  clear: left;
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.25;
+  min-height: 44px;
+  padding-left: 40px; /* Adds padding for checkbox */
+  position: relative;
+}
+.c-cb > label::before,
+.c-cb > input[type="checkbox"] {
+  box-sizing: border-box;
+  height: 44px;
+  left: -2px;
+  top: -2px;
+  width: 44px;
+}
+.c-cb > input[type="checkbox"] {
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1; /* Ensures checkbox is clickable */
+}
+.c-cb > label {
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  touch-action: manipulation;
+}
+.c-cb > label::before {
+  background: transparent;
+  border: 2px solid #504468; /* Pastel purple border for checkbox */
+  content: "";
+  position: absolute;
+}
+.c-cb > input[type="checkbox"]:focus-visible + label::before {
+  border-width: 4px;
+  outline: 3px dashed #b39ddb; /* Pastel purple outline on focus */
+}
+.c-cb > label::after {
+  background: transparent;
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  box-sizing: content-box;
+  content: "";
+  height: 7px;
+  left: 9px;
+  opacity: 0;
+  position: absolute;
+  top: 11px;
+  transform: rotate(-45deg);
+  width: 18px;
+}
+.c-cb > input[type="checkbox"]:checked + label::after {
+  opacity: 1; /* Shows checkmark when checked */
+}
