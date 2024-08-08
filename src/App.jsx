@@ -124,6 +124,7 @@ function App() {
 
   const handleUpdateTodo = (e, id) => {
     e.preventDefault();
+    if (editingText.trim() === '') return; // Prevent updating with empty text
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, text: editingText } : todo
     );
@@ -143,7 +144,9 @@ function App() {
   };
 
   const handleDeleteAll = () => {
-    setTodos([]);
+    if (window.confirm("Are you sure you want to delete all tasks?")) {
+      setTodos([]);
+    }
   };
 
   const handleMarkAllCompleted = () => {
@@ -167,7 +170,7 @@ function App() {
       <form onSubmit={handleAddTodo}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
-            Create Task
+            Create a Task
           </label>
         </h2>
         <input

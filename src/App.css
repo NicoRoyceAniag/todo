@@ -19,7 +19,9 @@ h1 {
 
 h2 {
   font-size: large;
-  color:#101720;
+  color:#2E2E2E; /* Dark gray text */
+  padding: 3px;
+
 }
 h1,
 h2 {
@@ -67,14 +69,14 @@ input {
 }
 
 input[type="text"] {
-  border-radius: 0; /* Removes default border radius */
+  border-radius: 20px; /* Removes default border radius */
 }
 body {
   font-family: 'Arial';
-  background-image: linear-gradient(#5E1B89 5%, #9D71BC 50%, #FF7F4D 92%, #F4512C 100%);
+  background-image: linear-gradient(#9D71BC 5%, #C7A3E3 50%, #FF7F4D 92%, #F4B4A6 100%); /* Lighter gradient */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #0B1215; 
+  color: #2E2E2E; /* Dark gray text */
   margin: 0 auto;
   width: 100%; /* Ensures body takes full width */
 }
@@ -94,7 +96,8 @@ body {
 .btn {
   border: 0.2rem solid #9D71BC; /* Purple border */
   cursor: pointer;
-  padding: 0.8rem 3rem 0.7rem 3rem; /* Adds padding to button */
+  padding: 0.6rem 1.5rem; /* Reduced padding */
+  font-size: 1.4rem; /* Adjusted font size */
   text-transform: capitalize; /* Capitalizes button text */
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition for background, text color, and border color */
 }
@@ -117,7 +120,7 @@ body {
   color: #fff; /* White text when active */
 }
 .btn__danger {
-  background-color: #FF7F4D; /* Pastel orange background */
+  background-color: #e98862; /* Pastel orange background */
   border-color: #F4512C; /* Slightly darker pastel orange border */
   color: #fff; /* White text color */
 }
@@ -191,10 +194,10 @@ body {
   background: #fff; /* White background for todo app */
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2.5rem 5rem 0 rgb(0 0 0 / 10%); /* Adds shadow for depth */
   margin: 5rem 5rem 5rem 50rem; /* Centered margin, auto on left and right */
-  padding: 3rem;
+  padding: 4rem; /* Increased padding */
   position: relative;
   overflow-y: auto; /* Ensures scrolling if content overflows */
-  max-height: 80vh; /* Restricts height for scrolling */
+  max-height: 75vh;/* Restricts height for scrolling */
   border-radius: 4px;
 }
 
@@ -237,8 +240,10 @@ body {
   gap: 2rem; /* Adds space between form elements */
 }
 .input__lg {
-  border: 2px solid #b39ddb; /* Pastel purple border for large inputs */
-  padding: 2rem;
+  border: 2px solid #9D71BC; /* Pastel purple border for large inputs */
+  padding: 1.5rem;
+  color:gray;
+  border-radius: 20px;
 }
 .input__lg:focus-visible {
   border-color: #6e6e6e; /* Darker grey border on focus */
@@ -269,84 +274,63 @@ body {
   flex: 0 0 100%; /* Makes each todo item take full width */
 }
 .todo-text {
-  border: 2px solid #d3b8ae; /* Light pastel orange border for todo text */
+  border: 2px solid #F4B4A6; /* Soft pastel orange border */
+  border-radius: 12px; /* Rounded corners */
   min-height: 4.4rem;
-  padding: 0.4rem 1.4rem; /* Adds padding to todo text */
-  width: 100%; /* Ensures full-width text area */
-}
-.todo-text input {
-  border: 0;
-  width: 100%; /* Ensures full-width input */
-}
-.todo-text button {
-  border: none; /* Removes border from buttons inside todo text */
+  padding: 0.8rem; /* Increased padding for a more spacious feel */
+  width: 100%; /* Ensures full-width input for text */
+  background-color: #fff; /* White background for contrast */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1.2rem; /* Smaller font size for text */
+  color: #2E2E2E; /* Dark gray text color */
 }
 
-/* Checkbox styles */
-.c-cb {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  clear: left;
-  display: block;
-  font-family: Arial, sans-serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.25;
-  min-height: 44px;
-  padding-left: 40px; /* Adds padding for checkbox */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list {
+  margin: 0;
+}
+.todo-label {
+  padding: 0.6rem;
+  color: #2E2E2E; /* Dark gray text for todo labels */
+  font-size: 1.6rem; /* Adjusted font size */
+}
+.date-created,
+.time-created {
+  color: #9D71BC; /* Pastel purple for date and time */
+}
+.completed .todo-label {
+  text-decoration: line-through;
+  color: #d3d3d3; /* Light gray text for completed tasks */
+}
+.editing {
+  background-color: #f0f0f0; /* Light gray background for editing mode */
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #9D71BC; /* Pastel purple border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  cursor: pointer;
   position: relative;
 }
-.c-cb > label::before,
-.c-cb > input[type="checkbox"] {
-  box-sizing: border-box;
-  height: 44px;
-  left: -2px;
-  top: -2px;
-  width: 44px;
+
+input[type="checkbox"]:checked {
+  background-color: #9D71BC; /* Pastel purple background when checked */
+  border-color: #9D71BC; /* Purple border when checked */
 }
-.c-cb > input[type="checkbox"] {
-  -webkit-font-smoothing: antialiased;
-  cursor: pointer;
-  margin: 0;
-  opacity: 0;
+
+input[type="checkbox"]:checked::after {
+  content: '✔'; /* Checkmark symbol */
+  color: #fff; /* White color for checkmark */
   position: absolute;
-  z-index: 1; /* Ensures checkbox is clickable */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
 }
-.c-cb > label {
-  cursor: pointer;
-  display: inline-block;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin-bottom: 0;
-  padding: 8px 15px 5px;
-  touch-action: manipulation;
-}
-.c-cb > label::before {
-  background: transparent;
-  border: 2px solid #504468; /* Pastel purple border for checkbox */
-  content: "";
-  position: absolute;
-}
-.c-cb > input[type="checkbox"]:focus-visible + label::before {
-  border-width: 4px;
-  outline: 3px dashed #b39ddb; /* Pastel purple outline on focus */
-}
-.c-cb > label::after {
-  background: transparent;
-  border: solid;
-  border-width: 0 0 5px 5px;
-  border-top-color: transparent;
-  box-sizing: content-box;
-  content: "";
-  height: 7px;
-  left: 9px;
-  opacity: 0;
-  position: absolute;
-  top: 11px;
-  transform: rotate(-45deg);
-  width: 18px;
-}
-.c-cb > input[type="checkbox"]:checked + label::after {
-  opacity: 1; /* Shows checkmark when checked */
-}
+
