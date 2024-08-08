@@ -303,7 +303,7 @@ body {
 }
 .completed .todo-label {
   text-decoration: line-through;
-  color: #d3d3d3; /* Light gray text for completed tasks */
+  color: #5E1B89; /* Purple text for completed tasks */
 }
 .editing {
   background-color: #f0f0f0; /* Light gray background for editing mode */
