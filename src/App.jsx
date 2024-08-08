@@ -134,7 +134,9 @@ function App() {
   };
 
   const handleDeleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    if (window.confirm("Are you sure you want to delete this task?")) {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    }
   };
 
   const handleToggleComplete = (id) => {
