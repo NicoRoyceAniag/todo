@@ -66,6 +66,7 @@ textarea {
 button,
 input {
   overflow: visible; /* Ensures elements do not clip overflow */
+  background-color: white;
 }
 
 input[type="text"] {
@@ -94,6 +95,7 @@ body {
   margin-top: 0.4rem; /* Adds margin to text input inside .form-group */
 }
 .btn {
+  background-color: white;
   border: 0.2rem solid #9D71BC; /* Purple border */
   cursor: pointer;
   padding: 0.6rem 1.5rem; /* Reduced padding */
@@ -193,7 +195,7 @@ body {
 .todoapp {
   background: #fff; /* White background for todo app */
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2.5rem 5rem 0 rgb(0 0 0 / 10%); /* Adds shadow for depth */
-  margin: 5rem 5rem 5rem 50rem; /* Centered margin, auto on left and right */
+  margin: 5rem 5rem 5rem 70rem; /* Centered margin, auto on left and right */
   padding: 4rem; /* Increased padding */
   position: relative;
   overflow-y: auto; /* Ensures scrolling if content overflows */
